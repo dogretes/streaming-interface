@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.img-topo {
+    height: 25px;
+}
+
+
+ul {
+    height: 25px;
+    background-color:black;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    list-style: none;
+    position: fixed;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    padding-bottom: 100px;
+    padding-top: 20px;
+}
+
+.video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.video.trocando {
+    opacity: 0;
+}
+
+
+.capa {
+    position: absolute;
+    bottom: 27%;
+    left: 5%;
+    width: 45%;
+    z-index: 5;
+}
+
+.capa-titulo {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.capa-descricao {
+    color: white;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.link-assistir {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link-assistir,
+.link-info {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+}
+
+.link-assistir {
+    background-color: white;
+    color: black;
+}
+
+.link-info {
+    background-color: rgba(255, 255, 255, 0.35);
+    color: white;
+}
+
+
+.catalogo {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
+    z-index: 4;
+}
+
+.titulo-carrousel {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.catalogo-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.lista-filmes {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.lista-filmes.animando {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.controle {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    font-size: 40px;
+    width: 45px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.controle:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.controle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.anterior {
+    margin-right: 10px;
+}
+
+.proximo {
+    margin-left: 10px;
+}
+
+
+.imagem-carrossel {
+    width: 150px;
+    height: 210px;
+    object-fit: cover;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.3s ease, outline 0.3s ease;
+}
+
+
+
+.imagem-carrossel:hover {
+    transform: scale(1.08);
+}
+
+.imagem-carrossel.selecionado {
+    transform: scale(1.08);
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+.titulo-carrousel {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.botao-som {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    cursor: pointer;
+    z-index: 10;
+
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.botao-som:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.08);
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-conteudo {
+    background-color: #181818;
+    margin: 30px auto;
+    padding: 20px;
+    width: 60%;
+    color: white;
+    position: relative;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    background: none;
+    border: none;
+
+    color: white;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    .capa {
+        left: 5%;
+        bottom: 25%;
+        width: 80%;
+    }
+
+    .capa-titulo {
+        font-size: 35px;
+    }
+
+    .capa-descricao {
+        font-size: 16px;
+    }
+
+    .imagem-carrossel {
+        width: 110px;
+        height: 155px;
+    }
+
+    .catalogo {
+        left: 20px;
+        right: 20px;
+        bottom: 15px;
+    }
+
+    .titulo-carrousel {
+        font-size: 16px;
+    }
+
+    .controle {
+        width: 35px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE - CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+
+     .imagem-carrossel {
+        width: 100px;
+        height: 140px;
+    }
+
+    .capa {
+        left: 5%;
+        width: 90%;
+        bottom: 28%;
+    }
+
+    .capa-titulo {
+        font-size: 32px;
+    }
+
+    .capa-descricao {
+        font-size: 16px;
+    }
+
+    .botao-som {
+        top: 70px;
+        right: 15px;
+    }
+
+    .catalogo {
+        left: 20px;
+        right: 20px;
+        bottom: 15px;
+    }
+
+    .controle {
+        width: 30px;
+        height: 70px;
+        font-size: 30px;
+    }
+
+}
+
+/* ========================================
+   RESPONSIVIDADE - TABLETS E TELAS MÉDIAS
+======================================== */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .capa {
+        left: 5%;
+        width: 60%;
+        bottom: 27%;
+    }
+
+    .capa-titulo {
+        font-size: 40px;
+    }
+
+    .capa-descricao {
+        font-size: 18px;
+    }
+
+    .imagem-carrossel {
+        width: 120px;
+        height: 168px;
+    }
+
+    .catalogo {
+        left: 30px;
+        right: 30px;
+        bottom: 20px;
+    }
+
+    .controle {
+        width: 35px;
+        height: 80px;
+        font-size: 35px;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .capa {
+        left: 5%;
+        width: 90%;
+        bottom: 30%;
+    }
+
+    .capa-titulo {
+        font-size: 32px;
+    }
+
+    .capa-descricao {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .link-assistir,
+    .link-info {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .catalogo {
+        left: 20px;
+        right: 20px;
+        bottom: 15px;
+    }
+
+    .titulo-carrousel {
+        font-size: 16px;
+    }
+
+    .imagem-carrossel {
+        width: 120px;
+        height: 170px;
+    }
+
+    .controle {
+        width: 35px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    .botao-som {
+        top: 70px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+}
+}
